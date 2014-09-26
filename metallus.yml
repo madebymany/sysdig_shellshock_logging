@@ -2,13 +2,13 @@ software_groups: &software
   - base
 
 jobs:
-  sysdig_shellshock:
+  sysdig-shellshock:
     builder: make
     base: ubuntu:12.04
     software_groups: *software
     packages:
       - type: debian
-        name: sysdig_shellshock
+        name: sysdig-shellshock
         version: 0.0.1
         depends:
           - sysdig

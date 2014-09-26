@@ -9,7 +9,6 @@ jobs:
     packages:
       - type: debian
         name: sysdig-shellshock
-        version: 0.0.1
         depends:
           - sysdig
           - runit-common

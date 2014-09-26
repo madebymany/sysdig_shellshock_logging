@@ -1,0 +1,26 @@
+#!/bin/sh
+
+set -e
+
+SV_NAME="sysdig_shellshock"
+
+[ -f "/etc/default/$SV_NAME" ] && . "/etc/default/$SV_NAME"
+
+LOG_SERVICE_DIR="/var/log/service/$SV_NAME"
+
+case "$1" in
+  configure)
+    # Set ownership and permissions
+
+    chown -R logger:logger "$LOG_SERVICE_DIR"
+    find "$LOG_SERVICE_DIR" -type d -exec chmod 2755 "{}" \+
+
+    [ ! -L "/etc/service/$SV_NAME"  ] && ln -s /etc/sv/$SV_NAME /etc/service/$SV_NAME
+
+    # if $2 is set, this is an upgrade
+    if ( [ -n "$2" ] && [ "$RESTART_ON_UPGRADE" = "true" ] ) ; then
+      echo "upgrade"
+    fi
+    ;;
+esac
+

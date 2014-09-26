@@ -1,0 +1,6 @@
+#!/bin/sh
+
+LOGDIR=/var/log/service/sysdig_shellshock
+
+cd $LOGDIR
+exec chpst -u logger svlogd $LOGDIR

@@ -2,7 +2,7 @@ all:
 	echo "nothing to build"
 
 install:
-	mkdir -p /etv/sv/sysdig_shellshock/log
+	mkdir -p /etc/sv/sysdig_shellshock/log
 	install -m 0755 -o root -g root  etc/sv/sysdig_shellshock/run /etc/sv/sysdig_shellshock/
 	install -m 0755 -o root -g root  etc/sv/sysdig_shellshock/finish /etc/sv/sysdig_shellshock/
 	install -m 0755 -o root -g root  etc/sv/sysdig_shellshock/log/run /etc/sv/sysdig_shellshock/log/
